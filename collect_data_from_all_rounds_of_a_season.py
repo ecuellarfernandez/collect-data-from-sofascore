@@ -18,5 +18,5 @@ for i in range(1, 39):
     # Convierte los datos JSON en un DataFrame
     df = pd.DataFrame(data)
     # Guarda el DataFrame en un archivo CSV
-    #GUARDARlo en la carpeta /resultados_rondas/22_23/rondas
-    df.to_csv(f"resultados_rondas/21_22/rondas/round_{i}.csv", index=False)
+    #GUARDARlo en la carpeta /results_rounds/22_23/rounds
+    df.to_csv(f"result_rounds/21_22/rounds/round_{i}.csv", index=False)
