@@ -6,7 +6,7 @@ This project uses Python to collect, clean, and analyze football match data. The
 
 ### `collect_data_from_all_rounds_of_a_season.py`
 
-This script collects data from all matches of a football season. It iterates over each round of the season, makes a GET request to the SofaScore API, and saves the data in a CSV file.
+This script contains a function `collect_data_from_all_rounds_of_a_season(url_base, csv_destination)` that collects data from all matches of a football season. It iterates over each round of the season, makes a GET request to the SofaScore API, and saves the data in a CSV file at the specified destination.
 
 ### `clean_round.py`
 
@@ -16,7 +16,7 @@ The `extract_values(event)` method is used to extract the required values from e
 
 ### `clean_season.py`
 
-This script loads data from all CSV files in a folder, extracts the required values from each event, and creates a new DataFrame with these values. The extracted values include the team names, scores, winner code, match status, round, and season. Each event is split into two rows, one for each team.
+This script contains a function `clean_season(folder_path)` that loads data from all CSV files in a folder, extracts the required values from each event, and creates a new DataFrame with these values. The extracted values include the team names, scores, winner code, match status, round, and season. Each event is split into two rows, one for each team.
 
 The `remove_accents(input_str)` method is used to remove accents from a string.
 
@@ -24,4 +24,4 @@ The `extract_values(event)` method is used to extract the required values from e
 
 ## Usage
 
-To use this project, first run `collect_data_from_all_rounds_of_a_season.py` to collect the match data. Then, run `clean_round.py` to clean the data for each round. Finally, run `clean_season.py` to clean the data for the entire season.
+To use this project, first import and run `collect_data_from_all_rounds_of_a_season(url_base, csv_destination)` from `collect_data_from_all_rounds_of_a_season.py` to collect the match data. Replace `url_base` with the base URL for the API and `csv_destination` with the path where you want to save the CSV files. Then, import and run `clean_season(folder_path)` from `clean_season.py` to clean the data for the entire season. Replace `folder_path` with the path where your CSV files are located.

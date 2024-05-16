@@ -3,7 +3,7 @@ pd.set_option('display.max_columns', None)
 import ast
 
 # Carga el archivo CSV en un DataFrame
-df = pd.read_csv('results_rounds/23_24/rounds/round_1.csv', converters={'events': ast.literal_eval})
+df = pd.read_csv('../results_rounds/23_24/rounds/round_1.csv', converters={'events': ast.literal_eval})
 
 # Define una función para extraer los valores requeridos
 def extract_values(event):
