@@ -13,8 +13,11 @@ def clean_season(folder_path):
 
     all_data = pd.DataFrame()
 
+    print("Starting clean_season function...")
+
     for filename in os.listdir(folder_path):
         if filename.endswith('.csv'):
+            print(f"Processing file: {filename}...")
             ronda = filename.replace('.csv', '').split('_')[1]
             temporada = os.path.basename(os.path.dirname(folder_path))
 
@@ -61,11 +64,14 @@ def clean_season(folder_path):
 
             all_data = pd.concat([all_data, new_df])
 
+    print("Sorting and resetting DataFrame index...")
     all_data.sort_values(by=['season', 'round'], inplace=True)
-
     all_data.reset_index(drop=True, inplace=True)
 
     # Save the DataFrame to a CSV file in the parent directory of the given folder path
+    print("Saving DataFrame to CSV file...")
     all_data.to_csv(os.path.join(os.path.dirname(folder_path), 'cleaned_data.csv'), index=False)
+
+    print("clean_season function finished.")
 
     return all_data
