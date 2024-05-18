@@ -18,7 +18,7 @@ def clean_season(folder_path):
     for filename in os.listdir(folder_path):
         if filename.endswith('.csv'):
             print(f"Processing file: {filename}...")
-            ronda = filename.replace('.csv', '').split('_')[1]
+            ronda = int(filename.replace('.csv', '').split('_')[1])  # Convert 'ronda' to an integer
             temporada = os.path.basename(os.path.dirname(folder_path))
 
             df = pd.read_csv(os.path.join(folder_path, filename), converters={'events': ast.literal_eval})
@@ -27,8 +27,8 @@ def clean_season(folder_path):
                 home_team = remove_accents(event['homeTeam']['name'].replace(' ', ''))
                 away_team = remove_accents(event['awayTeam']['name'].replace(' ', ''))
 
-                home_score = event['homeScore']['current'] if 'current' in event['homeScore'] else None
-                away_score = event['awayScore']['current'] if 'current' in event['awayScore'] else None
+                home_score = float(event['homeScore']['current']) if 'current' in event['homeScore'] else None  # Convert 'home_score' to a float
+                away_score = float(event['awayScore']['current']) if 'current' in event['awayScore'] else None  # Convert 'away_score' to a float
 
                 winner_code = event['winnerCode'] if 'winnerCode' in event else None
 
