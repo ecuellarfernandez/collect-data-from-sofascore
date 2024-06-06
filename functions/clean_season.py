@@ -34,6 +34,8 @@ def clean_season(folder_path):
 
                 status = event['status']['type']
 
+                event_id = event['id']  # Extract the event id
+
                 row1 = {
                     'match': f"{home_team}_{away_team}",
                     'team': home_team,
@@ -43,7 +45,8 @@ def clean_season(folder_path):
                     'result': 'win' if winner_code == 1 else 'loss' if winner_code == 2 else 'draw' if winner_code is not None else None,
                     'status': status,
                     'round': ronda,
-                    'season': temporada
+                    'season': temporada,
+                    'event_id': event_id  # Add the event id to the row
                 }
                 row2 = {
                     'match': f"{away_team}_{home_team}",
@@ -54,7 +57,8 @@ def clean_season(folder_path):
                     'result': 'win' if winner_code == 2 else 'loss' if winner_code == 1 else 'draw' if winner_code is not None else None,
                     'status': status,
                     'round': ronda,
-                    'season': temporada
+                    'season': temporada,
+                    'event_id': event_id  # Add the event id to the row
                 }
 
                 return [row1, row2]
