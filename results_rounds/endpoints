@@ -13,3 +13,9 @@ Rounds per season
 Classification per season
 
 Statics per game
+
+lineups
+https://www.sofascore.com/api/v1/event/{event_id}/lineups
+
+incidents
+https://www.sofascore.com/api/v1/event/{event_id}/incidents
